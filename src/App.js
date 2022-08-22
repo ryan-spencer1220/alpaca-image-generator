@@ -27,23 +27,19 @@ function App() {
   const [leg, setLeg] = useState(DefaultLeg);
   const [mouth, setMouth] = useState(DefaultMouth);
   const [neck, setNeck] = useState(DefaultNeck);
-  const [accessories, setAccessories] = useState(Headphones);
+  const [accessories, setAccessories] = useState(accessoryNames.Headphone);
   const [selectedAttribute, setSelectedAttribute] = useState(hairNames);
-
-  const hairArray = [
-    "Bang",
-    "Curls",
-    "Default",
-    "Elegant",
-    "Fancy",
-    "Quiff",
-    "Short",
-  ];
 
   const changeStyles = (e) => {
     e.preventDefault();
     const array = e.target.value.split(",");
     setSelectedAttribute(array);
+  };
+
+  const changeAccessory = (value) => {
+    console.log(value);
+    console.log("HIT");
+    setAccessories(value);
   };
 
   return (
@@ -196,9 +192,13 @@ function App() {
             Style
           </h6>
           <div className="grid grid-cols-3">
-            {selectedAttribute.map((label) => (
-              <button className="btn btn-outline btn-primary m-1">
-                {label}
+            {Object.entries(accessoryNames).map(([key, value]) => (
+              <button
+                className="btn btn-outline btn-primary m-1"
+                key={key}
+                onClick={() => changeAccessory(value)}
+              >
+                {key}
               </button>
             ))}
           </div>
