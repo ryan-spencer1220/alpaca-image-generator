@@ -23,27 +23,6 @@ function App() {
   const [selectedAttribute, setSelectedAttribute] = useState(hairNames);
   const [currentAccessory, setCurrentAccessory] = useState("hair");
 
-  useEffect(() => {
-    console.log(
-      "Ears: ",
-      ears,
-      "Eyes: ",
-      eyes,
-      "Hair: ",
-      hair,
-      "Leg: ",
-      leg,
-      "Mouth: ",
-      mouth,
-      "Neck: ",
-      neck,
-      "Accessories: ",
-      accessories,
-      "Background: ",
-      background
-    );
-  }, [background, ears, eyes, hair, leg, mouth, neck, accessories]);
-
   const changeAccessory = (key, value) => {
     console.log(currentAccessory);
     switch (currentAccessory) {
